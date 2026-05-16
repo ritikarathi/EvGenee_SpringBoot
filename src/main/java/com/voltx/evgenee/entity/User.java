@@ -1,9 +1,8 @@
 package com.voltx.evgenee.entity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.voltx.evgenee.enums.Role;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -17,5 +16,8 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 }
