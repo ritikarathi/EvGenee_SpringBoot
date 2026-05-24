@@ -1,35 +1,32 @@
 package com.voltx.evgenee.entity;
 
-
-import com.voltx.evgenee.enums.Role;
+import com.voltx.evgenee.enums.Type;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Instant;
-
-
 @Entity
-@Table(name = "users")
+@Table(name = "vehicles")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
-    @Column(unique = true)
-    private String email;
-    private String password;
+    private String model;
+    private String licensePlate;
 
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private Type type;
 
-    private Instant createdAt;
-    private boolean enabled = true;
+    private Double batteryCapacity;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private EvUser owner;
 }

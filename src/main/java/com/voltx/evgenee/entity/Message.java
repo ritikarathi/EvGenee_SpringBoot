@@ -1,7 +1,5 @@
 package com.voltx.evgenee.entity;
 
-
-import com.voltx.evgenee.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,26 +8,28 @@ import lombok.NoArgsConstructor;
 
 import java.time.Instant;
 
-
 @Entity
-@Table(name = "users")
+@Table(name = "messages")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
-    @Column(unique = true)
-    private String email;
-    private String password;
+    @ManyToOne
+    @JoinColumn(name = "sender_id")
+    private User sender;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    @ManyToOne
+    @JoinColumn(name = "receiver_id")
+    private User receiver;
 
-    private Instant createdAt;
-    private boolean enabled = true;
+    @Column(columnDefinition = "TEXT")
+    private String content;
+
+    private Instant sentAt;
+    private boolean readFlag = false;
 }
