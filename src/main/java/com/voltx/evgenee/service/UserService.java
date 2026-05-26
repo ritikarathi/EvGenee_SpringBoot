@@ -14,7 +14,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     public String register(String obj) {
-        String status = userRepository.save(obj);
-        return status;
+      //  String status = userRepository.save(obj);
+        return "Hello";
     }
 }
