@@ -22,4 +22,4 @@ public class AIController {
                 aiService.chat(requestDto)
         );
     }
-}}
+}
