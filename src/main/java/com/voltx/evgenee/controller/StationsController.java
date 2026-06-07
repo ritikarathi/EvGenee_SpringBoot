@@ -7,7 +7,7 @@ import com.voltx.evgenee.dto.responses.ReviewResponseDto;
 import com.voltx.evgenee.dto.responses.StationResponseDto;
 import com.voltx.evgenee.service.StationService;
 import lombok.RequiredArgsConstructor;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import org.springframework.security.core.Authentication;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/stations")
 @RequiredArgsConstructor
-public class StationController {
+public class StationsController {
 
     private final StationService stationService;
 
