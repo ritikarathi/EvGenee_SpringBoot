@@ -20,9 +20,6 @@ public class StationController {
 
     private final StationService stationService;
 
-    // ==========================
-    // PUBLIC APIs
-    // ==========================
 
     @GetMapping("/nearby")
     public ResponseEntity<List<StationResponseDto>> getNearbyStations(
@@ -56,9 +53,6 @@ public class StationController {
                         request));
     }
 
-    // ==========================
-    // OWNER / ADMIN APIs
-    // ==========================
 
     @PostMapping("/add")
     public ResponseEntity<StationResponseDto> addStation(
