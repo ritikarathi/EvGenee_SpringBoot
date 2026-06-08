@@ -1,7 +1,15 @@
 package com.voltx.evgenee.dto.requests;
 
-public class LoginRequest {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    private String username;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class LoginRequest {
+    private String email;
     private String password;
 }

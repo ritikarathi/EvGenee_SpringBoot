@@ -1,22 +1,24 @@
 package com.voltx.evgenee.dto.responses;
 
-import com.voltx.evgenee.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Instant;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class UserResponseDto {
-    private Long id;
-    private String username;
+    private String id;
+    private String _id;
+    private String name;
     private String email;
-    private Role role;
-    private Instant createdAt;
-    private boolean enabled;
+    private String role;
+    private VehicleResponseDto vehicle;
+    private List<String> vehicleNumbers;
+    private List<VehicleResponseDto> savedVehicles;
+    private String createdAt;
 }

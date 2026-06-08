@@ -4,7 +4,6 @@ import com.voltx.evgenee.dto.requests.LoginRequest;
 import com.voltx.evgenee.dto.requests.UserRequestDto;
 import com.voltx.evgenee.dto.responses.LoginResponse;
 import com.voltx.evgenee.dto.responses.UserResponseDto;
-import org.jspecify.annotations.Nullable;
 
 public interface UserService {
 
@@ -15,4 +14,12 @@ public interface UserService {
     UserResponseDto getProfile(String email);
 
     UserResponseDto updateProfile(String email, UserRequestDto requestDto);
+
+    void logout();
+
+    void forgotPassword(String email);
+
+    boolean verifyOTP(String email, String otp);
+
+    void resetPassword(String email, String otp, String password);
 }

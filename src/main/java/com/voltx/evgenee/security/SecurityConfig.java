@@ -1,5 +1,6 @@
 package com.voltx.evgenee.security;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,15 +16,16 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
+@RequiredArgsConstructor
 @EnableWebSecurity
 public class SecurityConfig {
-	@Autowired
-	private JwtRequestFilter jwtRequestFilter;
+
+	private final JwtRequestFilter jwtRequestFilter;
 	
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests((requests) -> requests
-		.requestMatchers("/home", "/auth/login","/auth/register").permitAll()
+		.requestMatchers("/home", "/auth/login","/auth/register", "/ws/**").permitAll()
 		.requestMatchers("/admin","/admin/dashboard").hasRole("ADMIN")
 		.anyRequest().authenticated())
 		.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));

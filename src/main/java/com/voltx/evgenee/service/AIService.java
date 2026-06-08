@@ -1,11 +1,7 @@
 package com.voltx.evgenee.service;
 
-
-import com.voltx.evgenee.dto.requests.MessageRequestDto;
-import com.voltx.evgenee.dto.responses.MessageResponseDto;
+import com.voltx.evgenee.dto.responses.AiChatResponse;
 
 public interface AIService {
-
-    MessageResponseDto chat(MessageRequestDto requestDto);
-
+    AiChatResponse processVoiceChat(String message, String threadId, String userEmail, Double latitude, Double longitude);
 }
