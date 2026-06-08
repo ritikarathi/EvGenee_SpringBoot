@@ -1,7 +1,10 @@
 package com.voltx.evgenee.controller;
 
+import com.voltx.evgenee.dto.common.MechanicDto;
 import com.voltx.evgenee.dto.requests.MessageRequestDto;
+import com.voltx.evgenee.dto.requests.SosRequestDto;
 import com.voltx.evgenee.dto.responses.MessageResponseDto;
+import com.voltx.evgenee.dto.responses.SosResponseDto;
 import com.voltx.evgenee.service.RoadsideService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +19,6 @@ public class RoadsideController {
 
     private final RoadsideService roadsideService;
 
-    /**
-     * Get supported SOS issue types
-     */
     @GetMapping("/issue-types")
     public ResponseEntity<List<String>> getIssueTypes() {
 
@@ -27,11 +27,8 @@ public class RoadsideController {
         );
     }
 
-    /**
-     * Find nearest mechanic
-     */
     @GetMapping("/nearest-mechanic")
-    public ResponseEntity<MessageResponseDto> getNearestMechanic(
+    public ResponseEntity<com.voltx.evgenee.dto.responses.SosResponseDto.MechanicDto> getNearestMechanic(
             @RequestParam Double latitude,
             @RequestParam Double longitude) {
 
@@ -40,34 +37,26 @@ public class RoadsideController {
         );
     }
 
-    /**
-     * Create SOS Request
-     */
     @PostMapping("/sos")
-    public ResponseEntity<MessageResponseDto> createSOSRequest(
-            @RequestBody MessageRequestDto requestDto) {
+    public ResponseEntity<SosResponseDto> createSOSRequest(
+            @RequestBody SosRequestDto requestDto) {
 
         return ResponseEntity.ok(
                 roadsideService.createSOSRequest(requestDto)
         );
     }
 
-    /**
-     * Get all SOS requests of logged-in user
-     */
+
     @GetMapping("/my-requests")
-    public ResponseEntity<List<MessageResponseDto>> getMyRequests() {
+    public ResponseEntity<List<SosResponseDto>> getMyRequests() {
 
         return ResponseEntity.ok(
                 roadsideService.getMyRequests()
         );
     }
 
-    /**
-     * Get SOS request details
-     */
     @GetMapping("/sos/{requestId}")
-    public ResponseEntity<MessageResponseDto> getRequestDetails(
+    public ResponseEntity<SosResponseDto> getRequestDetails(
             @PathVariable Long requestId) {
 
         return ResponseEntity.ok(
@@ -75,11 +64,9 @@ public class RoadsideController {
         );
     }
 
-    /**
-     * Cancel SOS request
-     */
+
     @PatchMapping("/sos/{requestId}/cancel")
-    public ResponseEntity<MessageResponseDto> cancelRequest(
+    public ResponseEntity<SosResponseDto> cancelRequest(
             @PathVariable Long requestId) {
 
         return ResponseEntity.ok(

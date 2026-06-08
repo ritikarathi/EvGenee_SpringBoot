@@ -30,4 +30,24 @@ public class UserServiceImpl implements UserService {
     public UserResponseDto updateProfile(String email, UserRequestDto requestDto) {
         return null;
     }
+
+    @Override
+    public void logout() {
+
+    }
+
+    @Override
+    public void forgotPassword(String email) {
+
+    }
+
+    @Override
+    public boolean verifyOTP(String email, String otp) {
+        return false;
+    }
+
+    @Override
+    public void resetPassword(String email, String otp, String password) {
+
+    }
 }

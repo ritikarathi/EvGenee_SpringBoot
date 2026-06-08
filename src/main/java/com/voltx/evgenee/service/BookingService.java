@@ -19,9 +19,9 @@ public interface BookingService {
 
     BookingResponseDto getBookingById(Long bookingId);
 
-    BookingResponseDto cancelBooking(Long bookingId);
+    BookingResponseDto cancelBooking(Long bookingId, String reason);
 
-    BookingResponseDto checkInBooking(Long bookingId);
+    BookingResponseDto checkInBooking(Long bookingId, String otp);
 
     BookingResponseDto completeBooking(Long bookingId);
 

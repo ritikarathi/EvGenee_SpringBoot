@@ -41,12 +41,12 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public BookingResponseDto cancelBooking(Long bookingId) {
+    public BookingResponseDto cancelBooking(Long bookingId, String reason) {
         return null;
     }
 
     @Override
-    public BookingResponseDto checkInBooking(Long bookingId) {
+    public BookingResponseDto checkInBooking(Long bookingId, String otp) {
         return null;
     }
 

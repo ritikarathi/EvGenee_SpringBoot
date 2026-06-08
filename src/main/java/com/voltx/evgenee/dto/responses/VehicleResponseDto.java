@@ -1,7 +1,5 @@
 package com.voltx.evgenee.dto.responses;
 
-
-import com.voltx.evgenee.enums.VehicleType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,10 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class VehicleResponseDto {
-    private Long id;
-    private String model;
-    private String licensePlate;
-    private VehicleType type;
+    private String id;
+    private String _id;
+    private String nickname;
+    private String type;
+    private String connectorType;
     private Double batteryCapacity;
-    private Long ownerId;
+    private String vehicleNumber;
 }

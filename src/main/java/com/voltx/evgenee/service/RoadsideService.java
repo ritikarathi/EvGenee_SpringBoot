@@ -1,7 +1,7 @@
 package com.voltx.evgenee.service;
 
-import com.voltx.evgenee.dto.requests.MessageRequestDto;
-import com.voltx.evgenee.dto.responses.MessageResponseDto;
+import com.voltx.evgenee.dto.requests.SosRequestDto;
+import com.voltx.evgenee.dto.responses.SosResponseDto;
 
 import java.util.List;
 
@@ -9,22 +9,22 @@ public interface RoadsideService {
 
     List<String> getIssueTypes();
 
-    MessageResponseDto getNearestMechanic(
+    SosResponseDto.MechanicDto getNearestMechanic(
             Double latitude,
             Double longitude
     );
 
-    MessageResponseDto createSOSRequest(
-            MessageRequestDto requestDto
+    SosResponseDto createSOSRequest(
+            SosRequestDto requestDto
     );
 
-    List<MessageResponseDto> getMyRequests();
+    List<SosResponseDto> getMyRequests();
 
-    MessageResponseDto getRequestDetails(
+    SosResponseDto getRequestDetails(
             Long requestId
     );
 
-    MessageResponseDto cancelRequest(
+    SosResponseDto cancelRequest(
             Long requestId
     );
 }

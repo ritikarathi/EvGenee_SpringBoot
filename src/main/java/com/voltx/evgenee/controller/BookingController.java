@@ -75,19 +75,20 @@ public class BookingController {
 
     @PostMapping("/{bookingId}/cancel")
     public ResponseEntity<BookingResponseDto> cancelBooking(
-            @PathVariable Long bookingId) {
+            @RequestParam Long bookingId,
+            @RequestParam String reason) {
 
         return ResponseEntity.ok(
-                bookingService.cancelBooking(bookingId)
+                bookingService.cancelBooking(bookingId, reason)
         );
     }
 
     @PostMapping("/{bookingId}/check-in")
     public ResponseEntity<BookingResponseDto> checkInBooking(
-            @PathVariable Long bookingId) {
+            @PathVariable Long bookingId, String otp) {
 
         return ResponseEntity.ok(
-                bookingService.checkInBooking(bookingId)
+                bookingService.checkInBooking(bookingId, otp)
         );
     }
 

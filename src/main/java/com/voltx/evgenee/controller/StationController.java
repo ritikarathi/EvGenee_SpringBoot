@@ -92,10 +92,6 @@ public class StationController {
                 "Station status updated successfully");
     }
 
-    // ==========================
-    // ADMIN APIs
-    // ==========================
-
     @GetMapping("/admin/all-stations")
     public ResponseEntity<List<StationResponseDto>> getAllStations() {
 
